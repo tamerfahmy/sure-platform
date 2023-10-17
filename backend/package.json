@@ -1,0 +1,31 @@
+{
+  "name": "Sure Platform",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Sure Platform",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-documentation": "^4.14.4",
+    "@strapi/plugin-i18n": "4.14.4",
+    "@strapi/plugin-users-permissions": "4.14.4",
+    "@strapi/strapi": "4.14.4",
+    "pg": "8.8.0",
+    "strapi-plugin-entity-relationship-chart": "^4.1.0",
+    "strapi-plugin-init-admin-user": "^0.2.2",
+    "strapi-plugin-transformer": "^3.1.2"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {},
+  "engines": {
+    "node": ">=16.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

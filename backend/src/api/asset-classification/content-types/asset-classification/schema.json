@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asset_classifications",
+  "info": {
+    "singularName": "asset-classification",
+    "pluralName": "asset-classifications",
+    "displayName": "Asset Classification",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "pluginOptions": {},
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "asset_classification": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::asset-classification.asset-classification",
+      "inversedBy": "asset_classifications"
+    },
+    "asset_classifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::asset-classification.asset-classification",
+      "mappedBy": "asset_classification"
+    },
+    "code": {
+      "pluginOptions": {},
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "assets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::asset.asset",
+      "mappedBy": "asset_classification"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "Location",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "locations"
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location.location",
+      "mappedBy": "location"
+    },
+    "code": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "assets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::asset.asset",
+      "mappedBy": "location"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Accommodation",
+        "Building",
+        "Compound",
+        "Floor",
+        "Lab",
+        "Lobby",
+        "Location",
+        "Meeting Room",
+        "Office",
+        "Path Room",
+        "Warehouse",
+        "Return Warehouse",
+        "Store",
+        "Theater"
+      ],
+      "required": true
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::department.department",
+      "mappedBy": "locations"
+    }
+  }
+}

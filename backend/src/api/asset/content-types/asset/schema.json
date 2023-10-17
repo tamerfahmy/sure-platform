@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "assets",
+  "info": {
+    "singularName": "asset",
+    "pluralName": "assets",
+    "displayName": "Asset",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "manufactureSerialNo": {
+      "type": "string"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "assets"
+    },
+    "asset_classification": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::asset-classification.asset-classification",
+      "inversedBy": "assets"
+    },
+    "depreciable": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "trackable": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "Used",
+        "Destructed"
+      ],
+      "default": "New",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Tools",
+        "Consumable"
+      ],
+      "required": true
+    },
+    "unit": {
+      "type": "enumeration",
+      "enum": [
+        "Box",
+        "Unit",
+        "Container"
+      ],
+      "default": "Unit",
+      "required": true
+    }
+  }
+}
